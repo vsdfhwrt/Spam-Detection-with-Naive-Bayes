@@ -1,0 +1,21 @@
+import numpy as np
+from sklearn.naive_bayes import MultinomialNB
+
+# Load the training data
+X_train = np.array([[1, 0, 1, 0],
+                    [0, 1, 0, 1],
+                    [1, 0, 0, 1]])
+y_train = np.array([0, 1, 0])  # 0 - Not spam, 1 - Spam
+
+# Create a Naive Bayes classifier
+classifier = MultinomialNB()
+
+# Train the classifier
+classifier.fit(X_train, y_train)
+
+# Make predictions
+X_test = np.array([[1, 1, 0, 0],
+                   [0, 1, 1, 1]])
+y_pred = classifier.predict(X_test)
+
+print("Predictions:", y_pred)
